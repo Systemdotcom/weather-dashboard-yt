@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard - YouTube Subscriber Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌤️ Weather Dashboard</h1>
+            <p>Real-time Weather & YouTube Channel Analytics</p>
+        </header>
+
+        <main>
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="cityInput" 
+                        placeholder="Enter city name..." 
+                        value="London"
+                    >
+                    <input 
+                        type="text" 
+                        id="countryInput" 
+                        placeholder="Country code (optional)"
+                    >
+                    <button onclick="searchWeather()">Search</button>
+                </div>
+            </section>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Weather Card -->
+                <section class="card weather-card">
+                    <h2>Current Weather</h2>
+                    <div id="weatherContent" class="loading">Loading weather data...</div>
+                </section>
+
+                <!-- YouTube Subscribers Card -->
+                <section class="card youtube-card">
+                    <h2>YouTube Channel - @dragonbroslegends</h2>
+                    <div id="youtubeContent" class="loading">Loading YouTube data...</div>
+                </section>
+            </div>
+
+            <!-- Detailed Weather Info -->
+            <section class="card detailed-info">
+                <h2>Detailed Weather Information</h2>
+                <div id="detailedContent" class="details-grid">
+                    <div class="detail-item">
+                        <span class="label">Feels Like</span>
+                        <span id="feelLike" class="value">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Humidity</span>
+                        <span id="humidity" class="value">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Wind Speed</span>
+                        <span id="windSpeed" class="value">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Pressure</span>
+                        <span id="pressure" class="value">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Cloud Coverage</span>
+                        <span id="clouds" class="value">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Sunrise</span>
+                        <span id="sunrise" class="value">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Sunset</span>
+                        <span id="sunset" class="value">--</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Last Updated</span>
+                        <span id="lastUpdate" class="value">--</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Weather Dashboard | Powered by OpenWeatherMap API & YouTube Data API</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
